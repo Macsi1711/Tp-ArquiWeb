@@ -1,0 +1,26 @@
+{
+  "name": "nutritrack",
+  "version": "1.0.0",
+  "private": true,
+  "description": "NutriTrack - Registro diario de alimentos, macronutrientes y consumo de agua",
+  "author": "Máximo Barros",
+  "workspaces": [
+    "backend",
+    "frontend"
+  ],
+  "scripts": {
+    "dev": "concurrently -n api,web -c blue,green \"npm run dev -w backend\" \"npm run dev -w frontend\"",
+    "build": "npm run build -w frontend",
+    "start": "npm start -w backend",
+    "test": "npm test -w backend",
+    "db:reset": "npm run db:reset -w backend",
+    "zip": "node scripts/zip-entrega.js",
+    "test:coverage": "npm run test:coverage -w backend"
+  },
+  "engines": {
+    "node": ">=20"
+  },
+  "devDependencies": {
+    "concurrently": "^9.2.5"
+  }
+}
