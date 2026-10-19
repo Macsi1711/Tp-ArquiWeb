@@ -8,7 +8,7 @@ import NavegadorFecha from '../components/NavegadorFecha.jsx';
 import BarraProgreso from '../components/BarraProgreso.jsx';
 import Modal from '../components/Modal.jsx';
 import Mensaje from '../components/Mensaje.jsx';
-import FormularioComida from '../components/FormularioComida.jsx';
+import FormularioComida from '../components/formularios/FormularioComida.jsx';
 import { TIPOS_COMIDA } from '../utils/constantes.js';
 import { fmt, kcal, ml } from '../utils/formato.js';
 import { horaLocal } from '../utils/fecha.js';

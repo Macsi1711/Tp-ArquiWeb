@@ -1,4 +1,4 @@
-const { HttpError } = require('../errors');
+const { HttpError } = require('../utils/errors');
 
 function recurso(router, path, handlersPorVerbo) {
   const route = router.route(path);

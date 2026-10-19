@@ -13,9 +13,9 @@
     "build": "npm run build -w frontend",
     "start": "npm start -w backend",
     "test": "npm test -w backend",
+    "test:coverage": "npm run test:coverage -w backend",
     "db:reset": "npm run db:reset -w backend",
-    "zip": "node scripts/zip-entrega.js",
-    "test:coverage": "npm run test:coverage -w backend"
+    "zip": "node scripts/zip-entrega.js"
   },
   "engines": {
     "node": ">=20"

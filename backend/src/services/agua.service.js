@@ -1,4 +1,4 @@
-const { NotFoundError } = require('../errors');
+const { NotFoundError } = require('../utils/errors');
 
 function createAguaService({ aguaRepository, usuariosService }) {
   function obtener(usuarioId, id) {
