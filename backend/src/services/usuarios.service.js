@@ -25,7 +25,6 @@ function createUsuariosService({ usuariosRepository }) {
       obtener(id);
       return guardar(() => usuariosRepository.actualizar(id, datos));
     },
-    // Los registros de comida y agua del usuario se eliminan en cascada (ON DELETE CASCADE).
     eliminar(id) {
       obtener(id);
       usuariosRepository.eliminar(id);

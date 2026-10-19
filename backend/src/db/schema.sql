@@ -1,5 +1,3 @@
--- Esquema de NutriTrack. Los valores nutricionales de alimentos son cada 100 g.
-
 CREATE TABLE IF NOT EXISTS usuarios (
   id                      INTEGER PRIMARY KEY AUTOINCREMENT,
   nombre                  TEXT    NOT NULL,

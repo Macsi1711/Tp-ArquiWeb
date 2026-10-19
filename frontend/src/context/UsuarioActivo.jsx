@@ -12,7 +12,6 @@ function leerIdGuardado() {
   }
 }
 
-/** Mantiene la lista de perfiles y cuál es el perfil activo (recordado en el navegador). */
 export function UsuarioActivoProvider({ children }) {
   const [usuarios, setUsuarios] = useState([]);
   const [usuarioActivoId, setUsuarioActivoId] = useState(leerIdGuardado);
@@ -40,7 +39,6 @@ export function UsuarioActivoProvider({ children }) {
     try {
       if (usuarioActivo) localStorage.setItem(CLAVE_STORAGE, String(usuarioActivo.id));
     } catch {
-      // Sin almacenamiento local: el perfil activo no se recuerda entre visitas.
     }
   }, [usuarioActivo]);
 

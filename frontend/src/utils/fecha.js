@@ -19,7 +19,6 @@ export function fechaLarga(fecha) {
   );
 }
 
-/** El backend guarda creadoEn en UTC ("YYYY-MM-DD HH:MM:SS"); se muestra en hora local. */
 export function horaLocal(creadoEn) {
   const date = new Date(`${creadoEn.replace(' ', 'T')}Z`);
   return new Intl.DateTimeFormat('es-AR', { hour: '2-digit', minute: '2-digit' }).format(date);

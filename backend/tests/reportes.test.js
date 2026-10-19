@@ -57,7 +57,7 @@ describe('GET /api/usuarios/:usuarioId/reportes/resumen-diario', () => {
     const antes = (await resumen(1)).body;
     await api()
       .post('/api/usuarios/1/comidas')
-      .send({ alimentoId: 24, fecha: hoy(), tipoComida: 'cena', gramos: 300 }) // 300 g de aceite de oliva
+      .send({ alimentoId: 24, fecha: hoy(), tipoComida: 'cena', gramos: 300 })
       .expect(201);
     const despues = (await resumen(1)).body;
     expect(despues.consumido.calorias).toBeCloseTo(antes.consumido.calorias + 884 * 3, 0);

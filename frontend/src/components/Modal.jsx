@@ -1,6 +1,5 @@
 import { useEffect, useRef } from 'react';
 
-/** Diálogo modal accesible basado en el elemento nativo <dialog>. */
 export default function Modal({ abierto, titulo, onCerrar, children }) {
   const ref = useRef(null);
 

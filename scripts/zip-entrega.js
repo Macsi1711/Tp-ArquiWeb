@@ -1,5 +1,3 @@
-// Genera el .zip de entrega con el código fuente versionado (sin node_modules, dist ni la base local)
-// y verifica que no supere el límite de 3 MB pedido por la cátedra.
 const { execFileSync } = require('node:child_process');
 const fs = require('node:fs');
 const path = require('node:path');

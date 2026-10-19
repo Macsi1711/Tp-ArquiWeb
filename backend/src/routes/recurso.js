@@ -1,9 +1,5 @@
 const { HttpError } = require('../errors');
 
-/**
- * Registra los handlers de una ruta por verbo HTTP. Cualquier otro verbo
- * recibe 405 Method Not Allowed con el header Allow correspondiente.
- */
 function recurso(router, path, handlersPorVerbo) {
   const route = router.route(path);
   const permitidos = Object.keys(handlersPorVerbo).map((v) => v.toUpperCase());

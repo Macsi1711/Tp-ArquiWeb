@@ -1,7 +1,6 @@
 const { z } = require('zod');
 const { esFechaValida } = require('../utils/fecha');
 
-// Mensajes en español para los casos que no tienen un mensaje propio en cada esquema.
 z.setErrorMap((issue, ctx) => {
   if (issue.code === z.ZodIssueCode.unrecognized_keys) {
     return { message: `Campos no permitidos: ${issue.keys.join(', ')}` };
@@ -12,10 +11,8 @@ z.setErrorMap((issue, ctx) => {
   return { message: ctx.defaultError };
 });
 
-/** Identificador en la URL (llega como texto y se convierte a número). */
 const id = z.coerce.number({ invalid_type_error: 'Debe ser un número' }).int('Debe ser un número entero').positive('Debe ser mayor a 0');
 
-/** Identificador que referencia a otro recurso dentro del body JSON. */
 const idReferencia = z
   .number({ invalid_type_error: 'Debe ser un número' })
   .int('Debe ser un número entero')
@@ -25,7 +22,6 @@ const fecha = z
   .string({ required_error: 'La fecha es obligatoria', invalid_type_error: 'Debe ser texto con formato YYYY-MM-DD' })
   .refine(esFechaValida, 'Debe ser una fecha válida con formato YYYY-MM-DD');
 
-// Los mensajes no repiten el nombre del campo: la respuesta de error ya indica a qué campo corresponde cada uno.
 const OBLIGATORIO = 'Este campo es obligatorio';
 
 const textoNoVacio = (max = 100) =>
@@ -51,7 +47,6 @@ const paramsId = z.object({ id });
 const paramsUsuario = z.object({ usuarioId: id });
 const paramsUsuarioRegistro = z.object({ usuarioId: id, id });
 
-/** Filtro por fecha exacta o por rango (desde/hasta), mutuamente excluyentes. */
 const filtroFechas = z
   .object({ fecha: fecha.optional(), desde: fecha.optional(), hasta: fecha.optional() })
   .refine((q) => !(q.fecha && (q.desde || q.hasta)), {

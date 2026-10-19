@@ -22,12 +22,7 @@ const { createAlimentosRouter } = require('./routes/alimentos.routes');
 const { createUsuariosRouter } = require('./routes/usuarios.routes');
 const { notFound, errorHandler } = require('./middlewares/errorHandler');
 
-/**
- * Construye la aplicación Express inyectando la base de datos, lo que permite
- * usar una base en memoria aislada en cada suite de tests.
- */
 function createApp({ db, logs = true, frontendDist = config.frontendDist } = {}) {
-  // Composición de capas: repositorios -> servicios -> controladores -> rutas.
   const alimentosRepository = createAlimentosRepository(db);
   const usuariosRepository = createUsuariosRepository(db);
   const comidasRepository = createComidasRepository(db);
@@ -40,7 +35,6 @@ function createApp({ db, logs = true, frontendDist = config.frontendDist } = {})
   const reportesService = createReportesService({ comidasRepository, aguaRepository, usuariosService });
 
   const app = express();
-  // La app se sirve por HTTP en local: se desactivan HSTS y el upgrade automático a HTTPS.
   app.use(
     helmet({
       hsts: false,
@@ -65,7 +59,6 @@ function createApp({ db, logs = true, frontendDist = config.frontendDist } = {})
   api.use(notFound);
   app.use('/api', api);
 
-  // En producción el mismo servidor entrega el frontend compilado (SPA).
   if (frontendDist && fs.existsSync(frontendDist)) {
     app.use(express.static(frontendDist));
     app.use((req, res, next) => {

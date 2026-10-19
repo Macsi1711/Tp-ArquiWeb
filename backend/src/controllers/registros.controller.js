@@ -1,7 +1,3 @@
-/**
- * Controlador genérico para los registros diarios (comidas y agua), que son
- * sub-recursos de un usuario: /usuarios/:usuarioId/<recurso>/:id
- */
 function createRegistrosController(service) {
   return {
     listar(req, res) {
