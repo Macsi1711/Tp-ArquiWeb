@@ -1,4 +1,4 @@
-const { HttpError } = require('../errors');
+const { HttpError } = require('../utils/errors');
 
 function notFound(req, res, next) {
   next(new HttpError(404, `No existe el recurso ${req.method} ${req.originalUrl}`));

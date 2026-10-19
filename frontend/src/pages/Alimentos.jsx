@@ -3,7 +3,7 @@ import { api } from '../api/client.js';
 import { useCarga } from '../hooks/useCarga.js';
 import Modal from '../components/Modal.jsx';
 import Mensaje from '../components/Mensaje.jsx';
-import FormularioAlimento from '../components/FormularioAlimento.jsx';
+import FormularioAlimento from '../components/formularios/FormularioAlimento.jsx';
 import { fmt } from '../utils/formato.js';
 
 export default function Alimentos() {

@@ -1,4 +1,4 @@
-const { NotFoundError, HttpError } = require('../errors');
+const { NotFoundError, HttpError } = require('../utils/errors');
 const { redondear } = require('../utils/numeros');
 
 function formatear(registro) {

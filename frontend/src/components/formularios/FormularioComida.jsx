@@ -1,9 +1,9 @@
 import { useMemo } from 'react';
-import { useFormulario, aNumero } from '../hooks/useFormulario.js';
-import { TIPOS_COMIDA } from '../utils/constantes.js';
-import { fmt, kcal } from '../utils/formato.js';
+import { useFormulario, aNumero } from '../../hooks/useFormulario.js';
+import { TIPOS_COMIDA } from '../../utils/constantes.js';
+import { fmt, kcal } from '../../utils/formato.js';
 import Campo from './Campo.jsx';
-import Mensaje from './Mensaje.jsx';
+import Mensaje from '../Mensaje.jsx';
 
 export default function FormularioComida({ registro, alimentos, onGuardar, onCancelar }) {
   const { valores, cambiar, errores, errorGeneral, enviando, enviar } = useFormulario(

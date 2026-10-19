@@ -1,6 +1,6 @@
-import { useFormulario, aNumero } from '../hooks/useFormulario.js';
+import { useFormulario, aNumero } from '../../hooks/useFormulario.js';
 import Campo from './Campo.jsx';
-import Mensaje from './Mensaje.jsx';
+import Mensaje from '../Mensaje.jsx';
 
 const VACIO = {
   nombre: '',

@@ -3,7 +3,7 @@ import { api } from '../api/client.js';
 import { useUsuarioActivo } from '../context/UsuarioActivo.jsx';
 import Modal from '../components/Modal.jsx';
 import Mensaje from '../components/Mensaje.jsx';
-import FormularioUsuario from '../components/FormularioUsuario.jsx';
+import FormularioUsuario from '../components/formularios/FormularioUsuario.jsx';
 import { fmt, kcal, ml } from '../utils/formato.js';
 
 export default function Usuarios() {

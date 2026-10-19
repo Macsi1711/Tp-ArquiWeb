@@ -1,4 +1,4 @@
-const { NotFoundError, ConflictError } = require('../errors');
+const { NotFoundError, ConflictError } = require('../utils/errors');
 const { esViolacionUnica } = require('../utils/sqlite');
 
 function createUsuariosService({ usuariosRepository }) {
