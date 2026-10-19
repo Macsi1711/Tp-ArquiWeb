@@ -4,7 +4,6 @@ function notFound(req, res, next) {
   next(new HttpError(404, `No existe el recurso ${req.method} ${req.originalUrl}`));
 }
 
-// eslint-disable-next-line no-unused-vars
 function errorHandler(err, req, res, next) {
   if (err.type === 'entity.parse.failed') {
     err = new HttpError(400, 'El cuerpo de la petición no es un JSON válido');

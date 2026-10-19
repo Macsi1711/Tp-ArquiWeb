@@ -1,6 +1,5 @@
 import { fmt } from '../utils/formato.js';
 
-/** Barra de avance consumido/objetivo. Pasado el 100% se marca como excedida. */
 export default function BarraProgreso({ etiqueta, consumido, objetivo, porcentaje, unidad, color, ocultarEtiqueta = false }) {
   const excedido = porcentaje > 100;
   return (

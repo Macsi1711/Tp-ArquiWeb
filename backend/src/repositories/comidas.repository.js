@@ -1,4 +1,3 @@
-// Los macros de cada registro se calculan a partir de los valores del alimento (cada 100 g) y los gramos consumidos.
 const SELECT = `
   SELECT rc.id, rc.usuario_id AS usuarioId, rc.alimento_id AS alimentoId, a.nombre AS alimentoNombre,
     rc.fecha, rc.tipo_comida AS tipoComida, rc.gramos,

@@ -1,4 +1,3 @@
-/** Devuelve la fecha local en formato ISO corto (YYYY-MM-DD). */
 function formatearFecha(date) {
   const y = date.getFullYear();
   const m = String(date.getMonth() + 1).padStart(2, '0');
@@ -16,7 +15,6 @@ function restarDias(dias, desde = new Date()) {
   return formatearFecha(date);
 }
 
-/** Valida que el string sea YYYY-MM-DD y una fecha real del calendario. */
 function esFechaValida(valor) {
   if (!/^\d{4}-\d{2}-\d{2}$/.test(valor)) return false;
   const [y, m, d] = valor.split('-').map(Number);

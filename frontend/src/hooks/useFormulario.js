@@ -1,10 +1,6 @@
 import { useState } from 'react';
 import { ApiError } from '../api/client.js';
 
-/**
- * Estado común de los formularios: valores, envío y errores devueltos por la API
- * (la validación de negocio la hace el backend; acá sólo se muestran sus mensajes).
- */
 export function useFormulario(valoresIniciales, onGuardar) {
   const [valores, setValores] = useState(valoresIniciales);
   const [errores, setErrores] = useState({});
@@ -34,5 +30,4 @@ export function useFormulario(valoresIniciales, onGuardar) {
   return { valores, setValores, cambiar, errores, errorGeneral, enviando, enviar };
 }
 
-/** Convierte el valor de un input numérico; vacío se omite para que la API informe que es obligatorio. */
 export const aNumero = (valor) => (valor === '' || valor === null ? undefined : Number(valor));

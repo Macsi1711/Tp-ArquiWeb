@@ -7,7 +7,6 @@ const { comidaBody, listarComidasQuery } = require('../validators/comidas.valida
 const { aguaBody } = require('../validators/agua.validator');
 const { resumenDiarioQuery } = require('../validators/reportes.validator');
 
-/** Rutas CRUD de un sub-recurso de registros diarios del usuario. */
 function createRegistrosRouter(controller, { body, listarQuery }) {
   const router = Router({ mergeParams: true });
 

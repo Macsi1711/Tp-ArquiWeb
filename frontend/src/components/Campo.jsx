@@ -1,6 +1,5 @@
 import { useId } from 'react';
 
-/** Etiqueta + control de formulario + mensaje de error asociado por aria-describedby. */
 export default function Campo({ etiqueta, error, ayuda, children, className = '' }) {
   const id = useId();
   const idError = `${id}-error`;

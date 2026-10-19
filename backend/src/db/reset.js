@@ -1,4 +1,3 @@
-// Borra la base local y la vuelve a crear con los datos de ejemplo.
 const fs = require('node:fs');
 const config = require('../config');
 const { createDatabase } = require('./connection');

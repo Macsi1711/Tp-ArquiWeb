@@ -2,7 +2,6 @@ const { redondear } = require('../utils/numeros');
 const { TIPOS_COMIDA } = require('../validators/comidas.validator');
 
 const MACROS = ['calorias', 'proteinas', 'grasas', 'carbohidratos'];
-// Factores de Atwater: kcal por gramo de cada macronutriente.
 const KCAL_POR_GRAMO = { proteinas: 4, grasas: 9, carbohidratos: 4 };
 
 const porcentaje = (parte, total) => (total > 0 ? redondear((parte / total) * 100) : 0);
@@ -15,7 +14,6 @@ function sumarMacros(registros) {
 
 function createReportesService({ comidasRepository, aguaRepository, usuariosService }) {
   return {
-    /** Totales del día comparados con los objetivos del usuario. */
     resumenDiario(usuarioId, fecha) {
       const usuario = usuariosService.obtener(usuarioId);
       const comidas = comidasRepository.listar(usuarioId, { fecha });
@@ -46,7 +44,6 @@ function createReportesService({ comidasRepository, aguaRepository, usuariosServ
         consumido,
         objetivo,
         porcentaje: Object.fromEntries(claves.map((k) => [k, porcentaje(consumido[k], objetivo[k])])),
-        // Negativo indica que se superó el objetivo.
         restante: Object.fromEntries(claves.map((k) => [k, redondear(objetivo[k] - consumido[k])])),
         distribucionCalorica: Object.fromEntries(
           Object.keys(KCAL_POR_GRAMO).map((m) => [m, porcentaje(kcalMacros[m], kcalTotalMacros)]),

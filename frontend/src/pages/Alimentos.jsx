@@ -13,7 +13,6 @@ export default function Alimentos() {
   const [edicion, setEdicion] = useState(null);
   const [mensaje, setMensaje] = useState(null);
 
-  // Espera a que el usuario deje de escribir antes de consultar a la API.
   useEffect(() => {
     const t = setTimeout(() => setQ(busqueda.trim()), 250);
     return () => clearTimeout(t);

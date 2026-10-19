@@ -25,7 +25,6 @@ export default function FormularioComida({ registro, alimentos, onGuardar, onCan
     return [...grupos.entries()].sort(([a], [b]) => a.localeCompare(b, 'es'));
   }, [alimentos]);
 
-  // Vista previa de lo que se va a registrar (el cálculo definitivo lo devuelve la API).
   const alimento = alimentos.find((a) => a.id === Number(valores.alimentoId));
   const factor = (Number(valores.gramos) || 0) / 100;
 

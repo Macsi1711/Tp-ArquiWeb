@@ -1,5 +1,3 @@
-// Cliente HTTP de la API REST. Toda la lógica de negocio vive en el backend.
-
 export class ApiError extends Error {
   constructor(status, mensaje, detalles = []) {
     super(mensaje);
@@ -7,7 +5,6 @@ export class ApiError extends Error {
     this.detalles = detalles;
   }
 
-  /** Errores de validación indexados por nombre de campo del body. */
   get erroresPorCampo() {
     return Object.fromEntries(
       this.detalles.filter((d) => d.campo.startsWith('body.')).map((d) => [d.campo.slice(5), d.mensaje]),

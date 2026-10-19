@@ -1,9 +1,5 @@
 const { ValidationError } = require('../errors');
 
-/**
- * Valida params, query y body con esquemas zod. Los datos ya parseados
- * (con tipos convertidos y valores por defecto) quedan en req.validated.
- */
 function validate(schemas) {
   return (req, res, next) => {
     const errores = [];

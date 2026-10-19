@@ -1,6 +1,5 @@
 const { restarDias } = require('../utils/fecha');
 
-// Valores nutricionales aproximados cada 100 g (fuente: USDA FoodData Central).
 const ALIMENTOS = [
   ['Pechuga de pollo cocida', 'Carnes', 165, 31, 3.6, 0],
   ['Carne vacuna magra cocida', 'Carnes', 217, 26, 12, 0],
@@ -34,7 +33,6 @@ const USUARIOS = [
   { nombre: 'Juan Pérez', email: 'juan@nutritrack.test', calorias: 2600, proteinas: 160, grasas: 80, carbohidratos: 300, aguaMl: 3000 },
 ];
 
-// Plan de comidas base: [tipo, alimento, gramos]. Se varía levemente por día para que los reportes no sean idénticos.
 const PLAN_DIARIO = [
   ['desayuno', 'Avena arrollada', 60],
   ['desayuno', 'Leche descremada', 250],
@@ -86,7 +84,6 @@ function seed(db) {
 
       for (let dia = 0; dia < DIAS_DE_HISTORIA; dia++) {
         const fecha = restarDias(dia);
-        // Hoy (dia 0) se carga solo hasta la merienda para que el día "en curso" quede incompleto.
         const plan = dia === 0 ? PLAN_DIARIO.filter(([tipo]) => tipo !== 'cena' && tipo !== 'snack') : PLAN_DIARIO;
         plan.forEach(([tipo, alimento, gramos], i) => {
           const variacion = 1 + (((dia + i + indiceUsuario) % 5) - 2) * 0.08;
