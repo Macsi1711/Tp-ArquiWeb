@@ -25,15 +25,13 @@ Abrir <http://localhost:3000>. Al iniciar se cargan datos de ejemplo (2 perfiles
 | `npm run dev` | Modo desarrollo con recarga automática (<http://localhost:5173>) |
 | `npm test` | Tests de la API |
 | `npm run db:reset` | Vuelve la base a los datos de ejemplo |
-| `npm run zip` | Genera el `.zip` de entrega |
 
 ## Estructura
 
 ```
 backend/    API REST (Node.js + Express + SQLite) y tests
 frontend/   Interfaz (React + Vite)
-docs/       Documento de entrega (Markdown y PDF)
-scripts/    Utilidades (zip de entrega, PDF del documento)
+docs/       Documento de entrega (PDF)
 ```
 
-El detalle de la arquitectura y de cada endpoint está en [`docs/Documento-TP.pdf`](docs/Documento-TP.pdf).
+Los endpoints y la justificación están en [`docs/Documento-TP.pdf`](docs/Documento-TP.pdf).

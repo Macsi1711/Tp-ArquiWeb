@@ -6,7 +6,7 @@ const { createApp } = require('./app');
 const db = createDatabase(config.dbPath);
 if (seedIfEmpty(db)) console.log('Base vacía: se cargaron los datos de ejemplo');
 
-const app = createApp({ db, logs: config.env !== 'test' });
+const app = createApp({ db });
 
 const server = app.listen(config.port, () => {
   console.log(`NutriTrack API escuchando en http://localhost:${config.port}`);

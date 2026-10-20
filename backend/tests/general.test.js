@@ -19,10 +19,4 @@ describe('Comportamiento general de la API', () => {
     const res = await api().options('/api/usuarios').expect(204);
     expect(res.headers.allow).toBe('GET, POST, HEAD, OPTIONS');
   });
-
-  test('incluye headers de seguridad (helmet)', async () => {
-    const res = await api().get('/api/health');
-    expect(res.headers['x-content-type-options']).toBe('nosniff');
-    expect(res.headers['x-powered-by']).toBeUndefined();
-  });
 });

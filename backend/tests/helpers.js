@@ -6,7 +6,7 @@ const { createApp } = require('../src/app');
 function crearAppDePrueba() {
   const db = createDatabase(':memory:');
   seed(db);
-  const app = createApp({ db, logs: false, frontendDist: null });
+  const app = createApp({ db, frontendDist: null });
   return { app, db, api: () => request(app) };
 }
 
