@@ -106,7 +106,7 @@ Las dependencias se arman en `app.js` con funciones fábrica (`createXxxService(
 | **Helmet** y **Morgan** | — | Helmet agrega headers de seguridad (CSP, `X-Content-Type-Options`, etc.) y oculta `X-Powered-By`. Morgan registra cada petición en consola, útil durante el desarrollo. |
 | **React 18 + Vite** | Vanilla JS, Vue, Angular | React permite componer la interfaz en componentes reutilizables (formularios, modal, barras de progreso) y manejar el estado de forma declarativa. Vite ofrece arranque instantáneo en desarrollo y un build optimizado. Angular resultaba excesivo para el tamaño del proyecto. |
 | **React Router** | Navegación manual | Cada pantalla tiene su propia URL. La fecha seleccionada también viaja en la URL (`/reporte?fecha=2026-10-15`), así se puede compartir un enlace o usar los botones atrás/adelante del navegador. |
-| **CSS propio** | Bootstrap, Tailwind | El enunciado evalúa el uso correcto de HTML y CSS. Una hoja propia organizada en secciones, con variables CSS, Grid/Flexbox, *media queries* para móvil y estilos de impresión, muestra ese manejo sin depender de clases de terceros. |
+| **CSS propio** | Bootstrap, Tailwind | El enunciado evalúa el uso correcto de HTML y CSS. Una hoja propia y simple, con Grid/Flexbox, variables para los colores de cada macro, *media queries* para móvil y estilos de impresión, muestra ese manejo sin depender de clases de terceros. |
 | **Jest + Supertest** | Postman/Newman, `node:test` | Los tests quedan codificados y versionados junto al código y se ejecutan con `npm test`. Supertest hace peticiones HTTP reales contra la app sin abrir un puerto. |
 | **npm workspaces** | Dos proyectos separados | Un solo `npm install` y scripts unificados en la raíz (`dev`, `build`, `start`, `test`) para backend y frontend. |
 
@@ -174,7 +174,7 @@ Decisiones del modelo:
 - **Cliente de la API** (`api/client.js`): centraliza `fetch`, el armado de query strings y la conversión de las respuestas de error en una excepción `ApiError` con los errores por campo.
 - **Estado**: un *Context* para el perfil activo (guardado en `localStorage`) y hooks propios: `useCarga` (carga asíncrona que descarta respuestas viejas), `useFormulario` y `useFechaEnUrl`.
 - **HTML semántico**: `header`, `nav`, `main`, `section`, `article`, `footer`; tablas con `thead`/`tbody`/`tfoot`, `scope` y `caption`; listas de definición (`dl`) para pares dato-valor; `fieldset`/`legend` para agrupar campos; `optgroup` para agrupar alimentos por categoría; enlace "Saltar al contenido".
-- **CSS**: variables de diseño, Grid y Flexbox, diseño responsive con *media queries* (probado a 390 px de ancho sin scroll horizontal) y hoja de impresión para el reporte.
+- **CSS**: hoja única y simple con Grid y Flexbox, variables para los colores de cada macro, diseño responsive con *media queries* (probado a 390 px de ancho sin scroll horizontal) y hoja de impresión para el reporte.
 
 ## 2.7 Seguridad
 
