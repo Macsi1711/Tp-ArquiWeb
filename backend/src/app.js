@@ -1,8 +1,6 @@
 const fs = require('node:fs');
 const path = require('node:path');
 const express = require('express');
-const helmet = require('helmet');
-const morgan = require('morgan');
 
 const config = require('./config');
 const { createAlimentosRepository } = require('./repositories/alimentos.repository');
@@ -22,7 +20,7 @@ const { createAlimentosRouter } = require('./routes/alimentos.routes');
 const { createUsuariosRouter } = require('./routes/usuarios.routes');
 const { notFound, errorHandler } = require('./middlewares/errorHandler');
 
-function createApp({ db, logs = true, frontendDist = config.frontendDist } = {}) {
+function createApp({ db, frontendDist = config.frontendDist } = {}) {
   const alimentosRepository = createAlimentosRepository(db);
   const usuariosRepository = createUsuariosRepository(db);
   const comidasRepository = createComidasRepository(db);
@@ -35,14 +33,7 @@ function createApp({ db, logs = true, frontendDist = config.frontendDist } = {})
   const reportesService = createReportesService({ comidasRepository, aguaRepository, usuariosService });
 
   const app = express();
-  app.use(
-    helmet({
-      hsts: false,
-      contentSecurityPolicy: { directives: { upgradeInsecureRequests: null } },
-    }),
-  );
   app.use(express.json({ limit: '100kb' }));
-  if (logs) app.use(morgan('dev'));
 
   const api = express.Router();
   api.get('/health', (req, res) => res.json({ estado: 'ok' }));
