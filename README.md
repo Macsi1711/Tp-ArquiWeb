@@ -34,4 +34,4 @@ frontend/   Interfaz (React + Vite)
 docs/       Documento de entrega (PDF)
 ```
 
-Los endpoints y la justificación están en [`docs/Documento-TP.pdf`](docs/Documento-TP.pdf).
+Los endpoints y la justificación están en [`docs/Documento-TP-MaximoBarros_0139600.pdf`](docs/Documento-TP-MaximoBarros_0139600.pdf).
